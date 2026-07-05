@@ -61,7 +61,7 @@ public class TileOreGenerator extends TileEntitySynchronized {
         gen.setWorld(world);
         gen.setPos(pos);
         gen.validate();
-        Chunk ch = world.getChunkFromBlockCoords(pos);
+        Chunk ch = world.getChunk(pos);
         ch.getTileEntityMap().put(pos, gen);
         world.setTileEntity(pos, gen);
         gen.updateContainingBlockInfo();

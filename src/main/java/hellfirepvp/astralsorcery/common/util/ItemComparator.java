@@ -113,7 +113,7 @@ public class ItemComparator {
     }
 
     private static boolean isListEmpty(NBTTagList list) {
-        if (!list.hasNoTags()) {
+        if (!list.isEmpty()) {
             if (list.getTagType() != Constants.NBT.TAG_LIST &&
                     list.getTagType() != Constants.NBT.TAG_COMPOUND) {
                 return false;

@@ -8,6 +8,7 @@
 
 package hellfirepvp.astralsorcery.common.block;
 
+import hellfirepvp.astralsorcery.client.ClientProxy;
 import hellfirepvp.astralsorcery.client.effect.EffectHelper;
 import hellfirepvp.astralsorcery.client.effect.fx.EntityFXFacingParticle;
 import hellfirepvp.astralsorcery.client.util.RenderingUtils;
@@ -110,13 +111,14 @@ public class BlockTranslucentBlock extends BlockContainer {
         return tt.getFakedState();
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.INVISIBLE;
+        return ClientProxy.TRANSLUCENT_TILE_RENDER_TYPE;
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

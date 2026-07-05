@@ -446,7 +446,7 @@ public class MiscUtils {
             world.capturedBlockSnapshots.clear();
             return false;
         }
-        block.onBlockDestroyedByPlayer(world, pos, suggestedBrokenState);
+        block.onPlayerDestroy(world, pos, suggestedBrokenState);
         if (harvestable) {
             try {
                 block.harvestBlock(world, fp, pos, suggestedBrokenState, tileentity, ItemStack.EMPTY);
@@ -492,7 +492,7 @@ public class MiscUtils {
 
     @Nullable
     public static BlockPos itDownTopBlock(World world, BlockPos at) {
-        Chunk chunk = world.getChunkFromBlockCoords(at);
+        Chunk chunk = world.getChunk(at);
         BlockPos downPos = null;
 
         for (BlockPos blockpos = new BlockPos(at.getX(), chunk.getTopFilledSegment() + 16, at.getZ()); blockpos.getY() >= 0; blockpos = downPos) {
@@ -530,7 +530,7 @@ public class MiscUtils {
     public static RayTraceResult rayTraceLook(EntityLivingBase entity, double reachDst) {
         Vec3d pos = new Vec3d(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
         Vec3d lookVec = entity.getLookVec();
-        Vec3d end = pos.addVector(lookVec.x * reachDst, lookVec.y * reachDst, lookVec.z * reachDst);
+        Vec3d end = pos.add(lookVec.x * reachDst, lookVec.y * reachDst, lookVec.z * reachDst);
         return entity.world.rayTraceBlocks(pos, end);
     }
 

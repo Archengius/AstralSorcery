@@ -141,7 +141,7 @@ public class KeyChainMining extends KeyPerk {
                         TileEntity te = world.getTileEntity(at);
                         Block block = atState.getBlock();
                         if(block.removedByPlayer(atState, world, at, player, true)) {
-                            block.onBlockDestroyedByPlayer(world, at, atState);
+                            block.onPlayerDestroy(world, at, atState);
                             block.harvestBlock(world, player, at, atState, te, player.getHeldItemMainhand());
                             if (exp > 0) {
                                 block.dropXpOnBlockBreak(world, at, exp);

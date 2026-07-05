@@ -42,7 +42,7 @@ public interface ItemHandRender {
         float f5 = MathHelper.sin(-pitch * 0.017453292F);
         float f6 = f3 * f4;
         float f7 = f2 * f4;
-        Vec3d vec3d1 = entityVec.addVector((double) f6 * range, (double) f5 * range, (double) f7 * range);
+        Vec3d vec3d1 = entityVec.add((double) f6 * range, (double) f5 * range, (double) f7 * range);
         RayTraceResult rtr = e.getEntityWorld().rayTraceBlocks(entityVec, vec3d1, stopTraceOnLiquids, ignoreBlockWithoutBoundingBox, false);
         if (rtr == null || rtr.typeOfHit != RayTraceResult.Type.BLOCK) {
             return null;

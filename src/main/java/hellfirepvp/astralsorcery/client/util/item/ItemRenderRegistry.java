@@ -71,7 +71,7 @@ public class ItemRenderRegistry {
     }
 
     private static ResourceLocation getWrappedLocation(ResourceLocation regEntry) {
-        return new ResourceLocation(regEntry.getResourceDomain(), "models/item/" + regEntry.getResourcePath());
+        return new ResourceLocation(regEntry.getNamespace(), "models/item/" + regEntry.getPath());
     }
 
     private static class DummyMeshDefinition implements ItemMeshDefinition {

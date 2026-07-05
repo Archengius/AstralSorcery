@@ -225,7 +225,7 @@ public class BlockPrism extends BlockStarlightNetwork implements CrystalProperty
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

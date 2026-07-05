@@ -41,7 +41,7 @@ public class OreDiscoverer {
             for (int xx = -xzLimit; xx <= xzLimit; xx++) {
                 for (int zz = -xzLimit; zz <= xzLimit; zz++) {
                     pooledPos.setPos(originPos.getX() + xx, 0, originPos.getZ() + zz);
-                    Chunk c = world.getChunkFromBlockCoords(pooledPos);
+                    Chunk c = world.getChunk(pooledPos);
                     int highest = (c.getTopFilledSegment() + 1) * 16;
                     for (int y = 0; y < highest; y++) {
                         pooledPos.setY(y);

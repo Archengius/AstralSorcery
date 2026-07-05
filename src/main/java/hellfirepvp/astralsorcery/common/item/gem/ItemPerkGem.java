@@ -129,13 +129,13 @@ public class ItemPerkGem extends Item implements IItemVariants {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getTranslationKey(ItemStack stack) {
         Item i = stack.getItem();
         if(i instanceof ItemPerkGem) {
             GemType type = GemType.values()[MathHelper.clamp(stack.getItemDamage(), 0, GemType.values().length)];
-            return super.getUnlocalizedName(stack) + "." + type.name().toLowerCase();
+            return super.getTranslationKey(stack) + "." + type.name().toLowerCase();
         }
-        return super.getUnlocalizedName(stack);
+        return super.getTranslationKey(stack);
     }
 
     @Override

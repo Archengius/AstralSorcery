@@ -81,13 +81,13 @@ public class ItemUsableDust extends Item implements IItemVariants, IBehaviorDisp
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getTranslationKey(ItemStack stack) {
         Item i = stack.getItem();
         if(i instanceof ItemUsableDust) {
             ItemUsableDust.DustType type = ItemUsableDust.DustType.fromMeta(stack.getItemDamage());
-            return super.getUnlocalizedName(stack) + "." + type.getUnlocalizedName();
+            return super.getTranslationKey(stack) + "." + type.getUnlocalizedName();
         }
-        return super.getUnlocalizedName(stack);
+        return super.getTranslationKey(stack);
     }
 
     @Override
@@ -143,12 +143,12 @@ public class ItemUsableDust extends Item implements IItemVariants, IBehaviorDisp
             switch (this) {
                 case ILLUMINATION:
                     EntityIlluminationSpark spark = new EntityIlluminationSpark(source.getWorld(), pos.getX(), pos.getY(), pos.getZ());
-                    spark.shoot(rotation.getFrontOffsetX(), rotation.getFrontOffsetY() + 0.1F, rotation.getFrontOffsetZ(), 0.7F, 0.9F);
+                    spark.shoot(rotation.getXOffset(), rotation.getYOffset() + 0.1F, rotation.getZOffset(), 0.7F, 0.9F);
                     source.getWorld().spawnEntity(spark);
                     return true;
                 case NOCTURNAL:
                     EntityNocturnalSpark nocSpark = new EntityNocturnalSpark(source.getWorld(), pos.getX(), pos.getY(), pos.getZ());
-                    nocSpark.shoot(rotation.getFrontOffsetX(), rotation.getFrontOffsetY() + 0.1F, rotation.getFrontOffsetZ(), 0.7F, 0.9F);
+                    nocSpark.shoot(rotation.getXOffset(), rotation.getYOffset() + 0.1F, rotation.getZOffset(), 0.7F, 0.9F);
                     source.getWorld().spawnEntity(nocSpark);
                     return true;
                 default:

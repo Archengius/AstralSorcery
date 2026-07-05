@@ -67,8 +67,8 @@ public class BlockMarbleSlab extends BlockSlab {
     }
 
     @Override
-    public String getUnlocalizedName(int meta) {
-        return super.getUnlocalizedName() + "." + EnumType.byMetadata(meta).getName();
+    public String getTranslationKey(int meta) {
+        return super.getTranslationKey() + "." + EnumType.byMetadata(meta).getName();
     }
 
     @Override

@@ -90,7 +90,7 @@ public class TileChalice extends TileEntityTick implements ILiquidStarlightPower
 
             playFluidEffect();
         } else {
-            if(world.isBlockIndirectlyGettingPowered(getPos()) > 0) {
+            if(world.getRedstonePowerFromNeighbors(getPos()) > 0) {
                 return;
             }
 
@@ -108,7 +108,7 @@ public class TileChalice extends TileEntityTick implements ILiquidStarlightPower
                     Collections.shuffle(tch);
                     for (TileChalice ch : tch) {
                         if(ch.getPos().equals(getPos())) continue;
-                        if(world.isBlockIndirectlyGettingPowered(ch.pos) > 0) continue;
+                        if(world.getRedstonePowerFromNeighbors(ch.pos) > 0) continue;
                         TileChalice other = MiscUtils.getTileAt(world, ch.pos, TileChalice.class, true);
                         if (other != null) {
                             if(new Vector3(this).distance(ch.getPos()) <= ConfigEntryChalice.chaliceRange) {
@@ -151,7 +151,7 @@ public class TileChalice extends TileEntityTick implements ILiquidStarlightPower
         for (int xx = chMin.x; xx <= chMax.x; xx++) {
             for (int zz = chMin.z; zz <= chMax.z; zz++) {
                 if (MiscUtils.isChunkLoaded(world, new ChunkPos(xx, zz))) {
-                    Chunk lChunk = world.getChunkFromChunkCoords(xx, zz);
+                    Chunk lChunk = world.getChunk(xx, zz);
                     for (TileEntity te : lChunk.getTileEntityMap().values()) {
                         if(te instanceof TileChalice && !te.isInvalid()) {
                             out.add((TileChalice) te);
@@ -270,7 +270,7 @@ public class TileChalice extends TileEntityTick implements ILiquidStarlightPower
 
     @Override
     public boolean providesEffect() {
-        return this.getWorld().isBlockIndirectlyGettingPowered(getPos()) == 0;
+        return this.getWorld().getRedstonePowerFromNeighbors(getPos()) == 0;
     }
 
     @Override

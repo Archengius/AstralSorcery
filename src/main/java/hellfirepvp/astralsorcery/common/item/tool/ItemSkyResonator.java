@@ -104,9 +104,9 @@ public class ItemSkyResonator extends Item implements INBTModel, ISpecialInterac
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getTranslationKey(ItemStack stack) {
         if(!isEnhanced(stack)) {
-            return super.getUnlocalizedName(stack);
+            return super.getTranslationKey(stack);
         }
         return getCurrentUpgrade(null, stack).getUnlocalizedName();
     }
@@ -167,7 +167,7 @@ public class ItemSkyResonator extends Item implements INBTModel, ISpecialInterac
                         return;
                     }
 
-                    FluidRarityRegistry.ChunkFluidEntry at = FluidRarityRegistry.getChunkEntry(worldIn.getChunkFromBlockCoords(pos));
+                    FluidRarityRegistry.ChunkFluidEntry at = FluidRarityRegistry.getChunkEntry(worldIn.getChunk(pos));
                     FluidStack display = at == null ? new FluidStack(FluidRegistry.WATER, 1) : at.tryDrain(1, false);
                     if(display == null || display.getFluid() == null) display = new FluidStack(FluidRegistry.WATER, 1);
                     PktPlayLiquidSpring pkt = new PktPlayLiquidSpring(display, new Vector3(pos).add(rand.nextFloat(), 0, rand.nextFloat()));
@@ -182,10 +182,10 @@ public class ItemSkyResonator extends Item implements INBTModel, ISpecialInterac
         if(!isEnhanced(stack)) {
             return defaultModelPath;
         }
-        String path = defaultModelPath.getResourcePath() + "_upgraded";
+        String path = defaultModelPath.getPath() + "_upgraded";
         ResonatorUpgrade upgrade = getCurrentUpgrade(getCurrentClientPlayer(), stack);
         path += "_" + upgrade.appendixUpgrade;
-        return new ModelResourceLocation(new ResourceLocation(defaultModelPath.getResourceDomain(), path), defaultModelPath.getVariant());
+        return new ModelResourceLocation(new ResourceLocation(defaultModelPath.getNamespace(), path), defaultModelPath.getVariant());
     }
 
     @Override
@@ -194,8 +194,8 @@ public class ItemSkyResonator extends Item implements INBTModel, ISpecialInterac
         out.add(defaultLocation);
         for (ResonatorUpgrade upgrade : ResonatorUpgrade.values()) {
             if(!upgrade.obtainable()) continue;
-            out.add(new ResourceLocation(defaultLocation.getResourceDomain(),
-                    defaultLocation.getResourcePath() + "_upgraded_" + upgrade.appendixUpgrade));
+            out.add(new ResourceLocation(defaultLocation.getNamespace(),
+                    defaultLocation.getPath() + "_upgraded_" + upgrade.appendixUpgrade));
         }
         return out;
     }

@@ -52,7 +52,7 @@ public class RockCrystalHandler {
             for (int zz = -chunkRadius; zz <= chunkRadius; zz++) {
                 ChunkPos other = new ChunkPos(center.x + xx, center.z + zz);
                 if (MiscUtils.isChunkLoaded(world, other)) {
-                    Chunk ch = world.getChunkFromChunkCoords(other.x, other.z);
+                    Chunk ch = world.getChunk(other.x, other.z);
                     RockCrystalPositions positions = ch.getCapability(CAPABILITY_CHUNK_ROCK_CRYSTALS, null);
                     if (positions != null) {
                         out.addAll(positions.crystalPositions);
@@ -66,7 +66,7 @@ public class RockCrystalHandler {
     public boolean addOre(World world, BlockPos pos, boolean force) {
         ChunkPos ch = new ChunkPos(pos);
         if (force || MiscUtils.isChunkLoaded(world, ch)) {
-            return this.addOre(world.getChunkFromChunkCoords(ch.x, ch.z), pos);
+            return this.addOre(world.getChunk(ch.x, ch.z), pos);
         }
         return false;
     }
@@ -86,7 +86,7 @@ public class RockCrystalHandler {
     public boolean removeOre(World world, BlockPos pos, boolean force) {
         ChunkPos ch = new ChunkPos(pos);
         if (force || MiscUtils.isChunkLoaded(world, ch)) {
-            return this.removeOre(world.getChunkFromChunkCoords(ch.x, ch.z), pos);
+            return this.removeOre(world.getChunk(ch.x, ch.z), pos);
         }
         return false;
     }

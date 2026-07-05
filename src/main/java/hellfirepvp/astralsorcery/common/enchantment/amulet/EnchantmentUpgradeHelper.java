@@ -202,7 +202,7 @@ public class EnchantmentUpgradeHelper {
             ResourceLocation rl = stack.getItem().getRegistryName();
             if(rl == null) return true; //Yea... no questions asked i guess.
 
-            if(rl.getResourceDomain().equalsIgnoreCase("draconicevolution")) {
+            if(rl.getNamespace().equalsIgnoreCase("draconicevolution")) {
                 // Exploit with DE's item-GUI being able to draw item's enchantments while having it equipped
                 // causes infinite feedback loop stacking enchantments higher and higher.
                 return true;

@@ -150,8 +150,8 @@ public class FluidBlockLiquidStarlight extends BlockFluidClassic {
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        super.onEntityCollision(worldIn, pos, state, entityIn);
 
         if (entityIn instanceof EntityPlayer) {
             ((EntityPlayer) entityIn).addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0, true, true));

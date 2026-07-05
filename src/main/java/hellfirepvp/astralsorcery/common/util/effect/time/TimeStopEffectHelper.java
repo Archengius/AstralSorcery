@@ -124,7 +124,7 @@ public class TimeStopEffectHelper {
 
         for (int xx = minX; xx <= maxX; ++xx) {
             for (int zz = minZ; zz <= maxZ; ++zz) {
-                Chunk ch = Minecraft.getMinecraft().world.getChunkFromChunkCoords(xx, zz);
+                Chunk ch = Minecraft.getMinecraft().world.getChunk(xx, zz);
                 if(!ch.isEmpty()) {
                     Map<BlockPos, TileEntity> map = ch.getTileEntityMap();
                     for (Map.Entry<BlockPos, TileEntity> teEntry : map.entrySet()) {

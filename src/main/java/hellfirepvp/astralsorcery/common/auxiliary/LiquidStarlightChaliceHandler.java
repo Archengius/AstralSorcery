@@ -97,12 +97,12 @@ public class LiquidStarlightChaliceHandler {
                 int cX = chX + xx;
                 int cZ = chZ + zz;
                 if(world.isBlockLoaded(new BlockPos(cX * 16, 1, cZ * 16))) {
-                    Chunk ch = world.getChunkFromChunkCoords(cX, cZ);
+                    Chunk ch = world.getChunk(cX, cZ);
                     Map<BlockPos, TileEntity> tiles = ch.getTileEntityMap();
                     for (TileEntity te : tiles.values()) {
                         if(!te.isInvalid() && te instanceof TileChalice &&
                                 new Vector3(te.getPos()).distance(thisV) <= 16) {
-                            if(world.isBlockIndirectlyGettingPowered(te.getPos()) > 0) continue;
+                            if(world.getRedstonePowerFromNeighbors(te.getPos()) > 0) continue;
                             TileChalice tc = (TileChalice) te;
                             RaytraceAssist rta = new RaytraceAssist(thisV, new Vector3(tc.getPos()).add(0.5, 0.5, 0.5));
                             if(!rta.isClear(world)) {
@@ -142,12 +142,12 @@ public class LiquidStarlightChaliceHandler {
                 int cX = chX + xx;
                 int cZ = chZ + zz;
                 if(world.isBlockLoaded(new BlockPos(cX * 16, 1, cZ * 16))) {
-                    Chunk ch = world.getChunkFromChunkCoords(cX, cZ);
+                    Chunk ch = world.getChunk(cX, cZ);
                     Map<BlockPos, TileEntity> tiles = ch.getTileEntityMap();
                     for (TileEntity te : tiles.values()) {
                         if(!te.isInvalid() && te instanceof TileChalice &&
                                 new Vector3(te.getPos()).distance(thisV) <= 16) {
-                            if(world.isBlockIndirectlyGettingPowered(te.getPos()) > 0) continue;
+                            if(world.getRedstonePowerFromNeighbors(te.getPos()) > 0) continue;
                             TileChalice tc = (TileChalice) te;
                             if(tc.getTank() != null &&
                                     tc.getTank().canFillFluidType(expected) &&
@@ -186,12 +186,12 @@ public class LiquidStarlightChaliceHandler {
                 int cX = chX + xx;
                 int cZ = chZ + zz;
                 if(world.isBlockLoaded(new BlockPos(cX * 16, 1, cZ * 16))) {
-                    Chunk ch = world.getChunkFromChunkCoords(cX, cZ);
+                    Chunk ch = world.getChunk(cX, cZ);
                     Map<BlockPos, TileEntity> tiles = ch.getTileEntityMap();
                     for (TileEntity te : tiles.values()) {
                         if(!te.isInvalid() && te instanceof TileChalice &&
                                 new Vector3(te.getPos()).distance(thisV) <= 16) {
-                            if(world.isBlockIndirectlyGettingPowered(te.getPos()) > 0) continue;
+                            if(world.getRedstonePowerFromNeighbors(te.getPos()) > 0) continue;
                             TileChalice tc = (TileChalice) te;
                             if(tc.getTank() != null &&
                                     tc.getTank().getFluid() != null &&

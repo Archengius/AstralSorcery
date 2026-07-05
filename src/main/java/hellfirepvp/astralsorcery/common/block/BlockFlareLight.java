@@ -202,7 +202,7 @@ public class BlockFlareLight extends Block {
     }
 
     @Override
-    public EnumPushReaction getMobilityFlag(IBlockState state) {
+    public EnumPushReaction getPushReaction(IBlockState state) {
         return EnumPushReaction.IGNORE;
     }
 

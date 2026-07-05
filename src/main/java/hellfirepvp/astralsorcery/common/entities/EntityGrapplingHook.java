@@ -160,7 +160,7 @@ public class EntityGrapplingHook extends EntityThrowable implements IEntityAddit
                     my /= dist * 5.0D;
                     mz /= dist * 5.0D;
                     Vec3d v2 = new Vec3d(mx, my, mz);
-                    if (v2.lengthVector() > 0.25D) {
+                    if (v2.length() > 0.25D) {
                         v2 = v2.normalize();
                         mx = v2.x / 4.0D;
                         my = v2.y / 4.0D;

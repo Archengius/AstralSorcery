@@ -8,6 +8,7 @@
 
 package hellfirepvp.astralsorcery.client;
 
+import codechicken.lib.render.block.BlockRenderingRegistry;
 import hellfirepvp.astralsorcery.AstralSorcery;
 import hellfirepvp.astralsorcery.client.data.KnowledgeFragmentData;
 import hellfirepvp.astralsorcery.client.data.PersistentDataManager;
@@ -24,6 +25,7 @@ import hellfirepvp.astralsorcery.client.gui.GuiJournalProgression;
 import hellfirepvp.astralsorcery.client.gui.journal.GuiScreenJournal;
 import hellfirepvp.astralsorcery.client.gui.journal.bookmark.BookmarkProvider;
 import hellfirepvp.astralsorcery.client.models.obj.OBJModelLibrary;
+import hellfirepvp.astralsorcery.client.render.block.TranslucentBlockRenderer;
 import hellfirepvp.astralsorcery.client.render.entity.*;
 import hellfirepvp.astralsorcery.client.render.tile.*;
 import hellfirepvp.astralsorcery.client.util.ItemColorizationHelper;
@@ -78,6 +80,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -111,6 +114,8 @@ public class ClientProxy extends CommonProxy {
     private static List<RenderInfoBlock> blockRegister = new ArrayList<>();
     private static List<RenderInfoItem> itemRegister = new ArrayList<>();
 
+    public static final EnumBlockRenderType TRANSLUCENT_TILE_RENDER_TYPE = BlockRenderingRegistry.createRenderType("ASTRAL_SORCERY_TRANSLUCENT_TILE");
+
     @Override
     public void setupConfiguration() {
         super.setupConfiguration();
@@ -138,6 +143,7 @@ public class ClientProxy extends CommonProxy {
 
     @SubscribeEvent
     public void registerModels(ModelRegistryEvent event) {
+        registerBlockRenderers();
         registerFluidRenderers();
         registerEntityRenderers();
         registerDisplayInformationInit();
@@ -157,6 +163,10 @@ public class ClientProxy extends CommonProxy {
         for (ItemDynamicColor i : RegistryItems.pendingDynamicColorItems) {
             colors.registerItemColorHandler(i::getColorForItemStack, (Item) i);
         }
+    }
+
+    private void registerBlockRenderers() {
+        BlockRenderingRegistry.registerRenderer(TRANSLUCENT_TILE_RENDER_TYPE, new TranslucentBlockRenderer());
     }
 
     private void registerFluidRenderers() {
@@ -277,12 +287,10 @@ public class ClientProxy extends CommonProxy {
         registerTESR(TileWell.class, new TESRWell());
         registerTESR(TileGrindstone.class, new TESRGrindstone());
         registerTESR(TileTelescope.class, new TESRTelescope());
-        registerTESR(TileFakeTree.class, new TESRFakeTree());
         registerTESR(TileAttunementAltar.class, new TESRAttunementAltar());
         registerTESR(TileCrystalLens.class, new TESRLens());
         registerTESR(TileCrystalPrismLens.class, new TESRPrismLens());
         registerTESR(TileStarlightInfuser.class, new TESRStarlightInfuser());
-        registerTESR(TileTranslucent.class, new TESRTranslucentBlock());
         registerTESR(TileAttunementRelay.class, new TESRAttunementRelay());
         registerTESR(TileMapDrawingTable.class, new TESRMapDrawingTable());
         registerTESR(TileChalice.class, new TESRChalice());

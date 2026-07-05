@@ -23,7 +23,6 @@ import hellfirepvp.astralsorcery.client.effect.texture.TextureSpritePlane;
 import hellfirepvp.astralsorcery.client.event.ClientGatewayHandler;
 import hellfirepvp.astralsorcery.client.render.tile.TESRMapDrawingTable;
 import hellfirepvp.astralsorcery.client.render.tile.TESRPrismLens;
-import hellfirepvp.astralsorcery.client.render.tile.TESRTranslucentBlock;
 import hellfirepvp.astralsorcery.client.util.StructureMatchPreview;
 import hellfirepvp.astralsorcery.client.util.TextureHelper;
 import hellfirepvp.astralsorcery.client.util.UIGateway;
@@ -183,7 +182,6 @@ public final class EffectHandler {
             }
         }
         TextureHelper.refreshTextureBindState();
-        TESRTranslucentBlock.renderTranslucentBlocks();
         TESRMapDrawingTable.renderRemainingGlasses(pTicks);
         for (CompoundObjectEffect.ObjectGroup og : objects.keySet()) {
             og.prepareGLContext();

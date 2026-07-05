@@ -92,9 +92,9 @@ public class JournalPageStructure implements IJournalPage {
             for (ItemStack stack : stacksNeeded) {
                 if(stack.getItem() instanceof UniversalBucket) {
                     FluidStack f = ((UniversalBucket) stack.getItem()).getFluid(stack);
-                    descriptionStacks.add(new Tuple<>(stack, stack.getCount() + "x " + I18n.format(stack.getUnlocalizedName() + ".name", f.getLocalizedName())));
+                    descriptionStacks.add(new Tuple<>(stack, stack.getCount() + "x " + I18n.format(stack.getTranslationKey() + ".name", f.getLocalizedName())));
                 } else {
-                    descriptionStacks.add(new Tuple<>(stack, stack.getCount() + "x " + I18n.format(stack.getUnlocalizedName() + ".name")));
+                    descriptionStacks.add(new Tuple<>(stack, stack.getCount() + "x " + I18n.format(stack.getTranslationKey() + ".name")));
                 }
             }
         }

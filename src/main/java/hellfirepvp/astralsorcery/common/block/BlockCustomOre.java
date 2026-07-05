@@ -104,7 +104,7 @@ public class BlockCustomOre extends Block implements BlockCustomName, BlockVaria
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 

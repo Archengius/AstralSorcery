@@ -55,9 +55,9 @@ public class MappingMigrationHandler {
             public NBTTagCompound fixTagCompound(NBTTagCompound compound) {
                 ResourceLocation tileId = new ResourceLocation(compound.getString("id"));
 
-                if ("minecraft".equals(tileId.getResourceDomain())) {
-                    if (migrationTileNames.contains(tileId.getResourcePath())) {
-                        compound.setString("id", new ResourceLocation(AstralSorcery.MODID, tileId.getResourcePath()).toString());
+                if ("minecraft".equals(tileId.getNamespace())) {
+                    if (migrationTileNames.contains(tileId.getPath())) {
+                        compound.setString("id", new ResourceLocation(AstralSorcery.MODID, tileId.getPath()).toString());
                     }
                 }
 

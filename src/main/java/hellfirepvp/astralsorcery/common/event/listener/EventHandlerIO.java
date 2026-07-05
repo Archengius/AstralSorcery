@@ -10,7 +10,6 @@ package hellfirepvp.astralsorcery.common.event.listener;
 
 import com.google.common.collect.Lists;
 import hellfirepvp.astralsorcery.AstralSorcery;
-import hellfirepvp.astralsorcery.client.render.tile.TESRTranslucentBlock;
 import hellfirepvp.astralsorcery.common.auxiliary.StorageNetworkHandler;
 import hellfirepvp.astralsorcery.common.constellation.distribution.ConstellationSkyHandler;
 import hellfirepvp.astralsorcery.common.data.world.WorldCacheManager;
@@ -50,7 +49,6 @@ public class EventHandlerIO {
 
     @SideOnly(Side.CLIENT)
     private void clientUnload() {
-        AstralSorcery.proxy.scheduleClientside(TESRTranslucentBlock::cleanUp);
     }
 
     @SubscribeEvent

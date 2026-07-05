@@ -82,13 +82,13 @@ public class ItemCraftingComponent extends Item implements IItemVariants {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getTranslationKey(ItemStack stack) {
         Item i = stack.getItem();
         if(i instanceof ItemCraftingComponent) {
             MetaType type = MetaType.fromMeta(stack.getItemDamage());
-            return super.getUnlocalizedName(stack) + "." + type.getUnlocalizedName();
+            return super.getTranslationKey(stack) + "." + type.getUnlocalizedName();
         }
-        return super.getUnlocalizedName(stack);
+        return super.getTranslationKey(stack);
     }
 
     @Override

@@ -1,0 +1,21 @@
+// Add any additional repositories for your dependencies here
+
+repositories {
+    maven {
+        //Baubles
+        name = 'thiakil'
+        url = 'https://maven.thiakil.com'
+    }
+
+    maven {
+        // CTM
+		name = 'chisel'
+        url = 'https://maven.tterrag.com'
+    }
+	
+	maven {
+		// Launchwrapper (Modern)
+		name = 'glass'
+		url = 'https://maven.glass-launcher.net/releases'
+	}
+}

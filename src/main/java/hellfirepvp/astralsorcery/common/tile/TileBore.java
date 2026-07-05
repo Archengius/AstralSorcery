@@ -333,7 +333,7 @@ public class TileBore extends TileInventoryBase implements IMultiblockDependantT
         }
         if(productionTimeout <= 0) {
             productionTimeout = rand.nextInt(10) + 20;
-            Chunk ch = world.getChunkFromBlockCoords(getPos());
+            Chunk ch = world.getChunk(getPos());
             FluidRarityRegistry.ChunkFluidEntry entry = FluidRarityRegistry.getChunkEntry(ch);
             if(entry != null) {
                 int mbDrain = rand.nextInt(300) + 300;

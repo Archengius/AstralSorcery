@@ -115,7 +115,7 @@ public class ItemWand extends Item implements ISpecialInteractItem, INBTModel {
         LinkedList<ResourceLocation> out = new LinkedList<>();
         out.add(defaultLocation);
         for (WandAugment wa : WandAugment.values()) {
-            out.add(new ResourceLocation(defaultLocation.getResourceDomain(), defaultLocation.getResourcePath() + "_" + wa.name().toLowerCase()));
+            out.add(new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_" + wa.name().toLowerCase()));
         }
         return out;
     }
@@ -124,8 +124,8 @@ public class ItemWand extends Item implements ISpecialInteractItem, INBTModel {
     public ModelResourceLocation getModelLocation(ItemStack stack, ModelResourceLocation suggestedDefaultLocation) {
         WandAugment wa = getAugment(stack);
         if(wa != null) {
-            return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getResourceDomain(),
-                    suggestedDefaultLocation.getResourcePath() + "_" + wa.name().toLowerCase()),
+            return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getNamespace(),
+                    suggestedDefaultLocation.getPath() + "_" + wa.name().toLowerCase()),
                     suggestedDefaultLocation.getVariant());
         }
         return suggestedDefaultLocation;

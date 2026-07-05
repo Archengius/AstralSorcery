@@ -207,7 +207,7 @@ public abstract class KnowledgeFragment {
     }
 
     private String getLocalizationBaseString() {
-        return String.format("knowledge.%s.%s", name.getResourceDomain(), name.getResourcePath());
+        return String.format("knowledge.%s.%s", name.getNamespace(), name.getPath());
     }
 
     @SideOnly(Side.CLIENT)

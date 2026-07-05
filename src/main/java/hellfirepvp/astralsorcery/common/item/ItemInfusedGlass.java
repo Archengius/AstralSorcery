@@ -108,12 +108,12 @@ public class ItemInfusedGlass extends Item implements INBTModel {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getTranslationKey(ItemStack stack) {
         ActiveStarMap map = getMapEngravingInformations(stack);
         if(map != null) {
-            return super.getUnlocalizedName(stack) + ".active";
+            return super.getTranslationKey(stack) + ".active";
         }
-        return super.getUnlocalizedName(stack);
+        return super.getTranslationKey(stack);
     }
 
     public static void setMapEngravingInformations(ItemStack infusedGlassStack, ActiveStarMap map) {
@@ -132,15 +132,15 @@ public class ItemInfusedGlass extends Item implements INBTModel {
         if(ItemInfusedGlass.getMapEngravingInformations(stack) == null) {
             return suggestedDefaultLocation;
         }
-        return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getResourceDomain(),
-                suggestedDefaultLocation.getResourcePath() + "_engraved"), suggestedDefaultLocation.getVariant());
+        return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getNamespace(),
+                suggestedDefaultLocation.getPath() + "_engraved"), suggestedDefaultLocation.getVariant());
     }
 
     @Override
     public List<ResourceLocation> getAllPossibleLocations(ModelResourceLocation defaultLocation) {
         List<ResourceLocation> out = new LinkedList<>();
         out.add(defaultLocation);
-        out.add(new ResourceLocation(defaultLocation.getResourceDomain(), defaultLocation.getResourcePath() + "_engraved"));
+        out.add(new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_engraved"));
         return out;
     }
 

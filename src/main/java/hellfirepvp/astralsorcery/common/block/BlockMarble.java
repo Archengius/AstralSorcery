@@ -201,7 +201,7 @@ public class BlockMarble extends Block implements BlockCustomName, BlockVariants
     @Override
     public Map<IBlockState, ModelResourceLocation> getModelLocations(Block blockIn) {
         ResourceLocation rl = Block.REGISTRY.getNameForObject(blockIn);
-        rl = new ResourceLocation(rl.getResourceDomain(), rl.getResourcePath() + "_festive");
+        rl = new ResourceLocation(rl.getNamespace(), rl.getPath() + "_festive");
         Map<IBlockState, ModelResourceLocation> out = Maps.newHashMap();
         for (IBlockState state : getValidStates()) {
             out.put(state, new ModelResourceLocation(rl, getPropertyString(state.getProperties())));

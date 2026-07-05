@@ -95,7 +95,7 @@ public class CapeEffectLucerna extends CapeArmorEffect {
 
         for (int xx = minX; xx <= maxX; ++xx) {
             for (int zz = minZ; zz <= maxZ; ++zz) {
-                Chunk ch = w.getChunkFromChunkCoords(xx, zz);
+                Chunk ch = w.getChunk(xx, zz);
                 if(!ch.isEmpty()) {
                     Map<BlockPos, TileEntity> map = ch.getTileEntityMap();
                     for (Map.Entry<BlockPos, TileEntity> teEntry : map.entrySet()) {

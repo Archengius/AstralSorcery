@@ -74,19 +74,19 @@ public class RegistryItems {
     public static void setupDefaults() {
         creativeTabAstralSorcery = new CreativeTabs(AstralSorcery.MODID) {
             @Override
-            public ItemStack getTabIconItem() {
+            public ItemStack createIcon() {
                 return new ItemStack(journal);
             }
         };
         creativeTabAstralSorceryPapers = new CreativeTabs(AstralSorcery.MODID + ".papers") {
             @Override
-            public ItemStack getTabIconItem() {
+            public ItemStack createIcon() {
                 return new ItemStack(constellationPaper);
             }
         };
         creativeTabAstralSorceryTunedCrystals = new CreativeTabs(AstralSorcery.MODID + ".crystals") {
             @Override
-            public ItemStack getTabIconItem() {
+            public ItemStack createIcon() {
                 return new ItemStack(tunedRockCrystal);
             }
         };
@@ -185,7 +185,7 @@ public class RegistryItems {
     }
 
     private static <T extends Item> T registerItem(T item, String name) {
-        item.setUnlocalizedName(name);
+        item.setTranslationKey(name);
         item.setRegistryName(name);
         register(item, name);
         return item;

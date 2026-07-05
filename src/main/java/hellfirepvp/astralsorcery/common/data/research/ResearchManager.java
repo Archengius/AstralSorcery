@@ -621,7 +621,7 @@ public class ResearchManager {
 
     private static void load_unsafeFromNBT(UUID pUUID, @Nullable NBTTagCompound compound) {
         PlayerProgress progress = new PlayerProgress();
-        if (compound != null && !compound.hasNoTags()) {
+        if (compound != null && !compound.isEmpty()) {
             progress.load(compound);
         }
         progress.forceGainResearch(ResearchProgression.DISCOVERY);

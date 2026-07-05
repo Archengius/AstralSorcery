@@ -8,6 +8,7 @@
 
 package hellfirepvp.astralsorcery.common.block;
 
+import hellfirepvp.astralsorcery.client.ClientProxy;
 import hellfirepvp.astralsorcery.client.effect.EffectHelper;
 import hellfirepvp.astralsorcery.client.effect.fx.EntityFXFacingParticle;
 import hellfirepvp.astralsorcery.client.util.RenderingUtils;
@@ -73,7 +74,7 @@ public class BlockFakeTree extends BlockContainer {
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         TileFakeTree tft = MiscUtils.getTileAt(worldIn, pos, TileFakeTree.class, false);
         if(tft == null || tft.getReference() == null) return;
-        if(rand.nextInt(20) == 0) {
+        if(rand.nextInt(60) == 0) {
             Color c = new Color(63, 255, 63);
             PatreonEffectHelper.PatreonEffect pe;
             if (tft.getPlayerEffectRef() != null && (pe = PatreonEffectHelper.getPatreonEffects(Side.CLIENT, tft.getPlayerEffectRef())
@@ -113,13 +114,14 @@ public class BlockFakeTree extends BlockContainer {
         return Items.AIR;
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.INVISIBLE;
+        return ClientProxy.TRANSLUCENT_TILE_RENDER_TYPE;
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

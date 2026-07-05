@@ -65,7 +65,7 @@ public class ItemIlluminationWand extends Item implements ItemAlignmentChargeCon
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         EnumDyeColor color = getConfiguredColor(stack);
         if(color != null) {
-            tooltip.add(MiscUtils.textFormattingForDye(color) + MiscUtils.capitalizeFirst(I18n.format(color.getUnlocalizedName())));
+            tooltip.add(MiscUtils.textFormattingForDye(color) + MiscUtils.capitalizeFirst(I18n.format(color.getTranslationKey())));
         }
     }
 

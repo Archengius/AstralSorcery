@@ -168,7 +168,7 @@ public class JournalPageDiscoveryRecipe implements IJournalPage {
                 TileAltar.AltarLevel levelSelected = TileAltar.AltarLevel.values()[((int) indexSel)];
                 int max = levelSelected.getStarlightMaxStorage();
                 Item i = Item.getItemFromBlock(BlocksAS.blockAltar);
-                String locTier = i.getUnlocalizedName(new ItemStack(i, 1, levelSelected.ordinal()));
+                String locTier = i.getTranslationKey(new ItemStack(i, 1, levelSelected.ordinal()));
                 locTier = I18n.format(locTier + ".name");
                 String displReq = "  " + getDescriptionFromStarlightAmount(locTier, recipe.getPassiveStarlightRequired(), max);
                 String dsc = I18n.format("astralsorcery.journal.recipe.amt.desc");

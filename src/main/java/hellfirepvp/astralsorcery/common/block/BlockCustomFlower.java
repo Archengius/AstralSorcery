@@ -144,7 +144,7 @@ public class BlockCustomFlower extends Block implements BlockCustomName, BlockVa
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 

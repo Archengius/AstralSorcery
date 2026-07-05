@@ -70,7 +70,7 @@ public class ItemShiftingStar extends Item implements INBTModel {
     public ModelResourceLocation getModelLocation(ItemStack stack, ModelResourceLocation suggestedDefaultLocation) {
         IMajorConstellation cst = getAttunement(stack);
         if (cst != null) {
-            return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getResourceDomain(), suggestedDefaultLocation.getResourcePath() + "_" + cst.getSimpleName()), suggestedDefaultLocation.getVariant());
+            return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getNamespace(), suggestedDefaultLocation.getPath() + "_" + cst.getSimpleName()), suggestedDefaultLocation.getVariant());
         }
         return suggestedDefaultLocation;
     }
@@ -80,7 +80,7 @@ public class ItemShiftingStar extends Item implements INBTModel {
         List<ResourceLocation> all = Lists.newArrayList();
         all.add(defaultLocation);
         for (IMajorConstellation cst : ConstellationRegistry.getMajorConstellations()) {
-            all.add(new ResourceLocation(defaultLocation.getResourceDomain(), defaultLocation.getResourcePath() + "_" + cst.getSimpleName()));
+            all.add(new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_" + cst.getSimpleName()));
         }
         return all;
     }
@@ -122,8 +122,8 @@ public class ItemShiftingStar extends Item implements INBTModel {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        String unloc = super.getUnlocalizedName(stack);
+    public String getTranslationKey(ItemStack stack) {
+        String unloc = super.getTranslationKey(stack);
         if (getAttunement(stack) != null) {
             unloc += ".enhanced";
         }

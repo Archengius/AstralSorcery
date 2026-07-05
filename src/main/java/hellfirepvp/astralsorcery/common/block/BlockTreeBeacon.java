@@ -60,7 +60,7 @@ public class BlockTreeBeacon extends BlockStarlightNetwork implements BlockDynam
     public Map<IBlockState, ModelResourceLocation> getModelLocations(Block blockIn) {
         Map<IBlockState, ModelResourceLocation> out = Maps.newHashMap();
         ResourceLocation rl = Block.REGISTRY.getNameForObject(blockIn);
-        rl = new ResourceLocation(rl.getResourceDomain(), rl.getResourcePath() + "_festive");
+        rl = new ResourceLocation(rl.getNamespace(), rl.getPath() + "_festive");
         out.put(blockIn.getDefaultState(), new ModelResourceLocation(rl, getPropertyString(blockIn.getDefaultState().getProperties())));
         return out;
     }

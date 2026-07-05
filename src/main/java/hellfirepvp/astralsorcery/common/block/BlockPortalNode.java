@@ -144,7 +144,7 @@ public class BlockPortalNode extends BlockContainer {
     }
 
     @Override
-    public EnumPushReaction getMobilityFlag(IBlockState state) {
+    public EnumPushReaction getPushReaction(IBlockState state) {
         return EnumPushReaction.IGNORE;
     }
 

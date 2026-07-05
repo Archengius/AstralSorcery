@@ -149,7 +149,7 @@ public interface GemSlotPerk {
                 }
             }
         } else {
-            tooltip.add(TextFormatting.GRAY + I18n.format("perk.info.gem.content.item", contained.getRarity().rarityColor + contained.getDisplayName()));
+            tooltip.add(TextFormatting.GRAY + I18n.format("perk.info.gem.content.item", contained.getRarity().color + contained.getDisplayName()));
             if (prog.hasPerkEffect((AbstractPerk) this)) {
                 tooltip.add(TextFormatting.GRAY + I18n.format("perk.info.gem.remove"));
             }

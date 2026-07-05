@@ -13,7 +13,6 @@ import hellfirepvp.astralsorcery.client.ClientProxy;
 import hellfirepvp.astralsorcery.client.data.PersistentDataManager;
 import hellfirepvp.astralsorcery.client.effect.EffectHandler;
 import hellfirepvp.astralsorcery.client.gui.GuiJournalProgression;
-import hellfirepvp.astralsorcery.client.render.tile.TESRTranslucentBlock;
 import hellfirepvp.astralsorcery.client.util.ClientScreenshotCache;
 import hellfirepvp.astralsorcery.client.util.UISextantCache;
 import hellfirepvp.astralsorcery.client.util.camera.ClientCameraManager;
@@ -60,7 +59,6 @@ public class ClientConnectionEventHandler {
         AstralSorcery.proxy.scheduleClientside(ClientScreenshotCache::cleanUp);
         ClientRenderEventHandler.resetPermChargeReveal();
         ClientRenderEventHandler.resetTempChargeReveal();
-        AstralSorcery.proxy.scheduleClientside(TESRTranslucentBlock::cleanUp);
         PlayerChargeHandler.INSTANCE.setClientCharge(0F);
         PerkEffectHelper.perkCooldownsClient.clear();
         CelestialGatewaySystem.instance.updateClientCache(new HashMap<>());

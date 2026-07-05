@@ -107,7 +107,7 @@ public class OreTypes implements ConfigDataAdapter<OreEntry> {
             for (ItemStack stack : ores) {
                 if(stack.isEmpty() || Block.getBlockFromItem(stack.getItem()) == Blocks.AIR) continue;
                 Item i = stack.getItem();
-                String regModid = i.getRegistryName().getResourceDomain();
+                String regModid = i.getRegistryName().getNamespace();
                 if(Config.modidOreGenBlacklist.contains(regModid)) continue;
 
                 String className = i.getClass().getName();
@@ -134,7 +134,7 @@ public class OreTypes implements ConfigDataAdapter<OreEntry> {
             for (ItemStack stack : ores) {
                 if(stack.isEmpty() || Block.getBlockFromItem(stack.getItem()) == Blocks.AIR) continue;
                 Item i = stack.getItem();
-                String regModid = i.getRegistryName().getResourceDomain();
+                String regModid = i.getRegistryName().getNamespace();
                 if(Config.modidOreGenBlacklist.contains(regModid)) continue;
 
                 String className = i.getClass().getName();

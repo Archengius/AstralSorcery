@@ -243,10 +243,10 @@ public abstract class BlockCollectorCrystalBase extends BlockStarlightNetwork
     }
 
     @Override
-    public String getUnlocalizedName() {
+    public String getTranslationKey() {
         PlayerProgress client = ResearchManager.clientProgress;
         if(EnumGatedKnowledge.COLLECTOR_CRYSTAL.canSee(client.getTierReached())) {
-            return super.getUnlocalizedName();
+            return super.getTranslationKey();
         }
         return "tile.blockcollectorcrystal.obf";
     }

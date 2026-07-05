@@ -8,7 +8,6 @@
 
 package hellfirepvp.astralsorcery.client.util;
 
-import hellfirepvp.astralsorcery.client.render.tile.TESRTranslucentBlock;
 import hellfirepvp.astralsorcery.common.structure.array.BlockArray;
 import hellfirepvp.astralsorcery.common.tile.IMultiblockDependantTile;
 import hellfirepvp.astralsorcery.common.structure.array.PatternBlockArray;

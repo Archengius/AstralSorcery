@@ -209,7 +209,7 @@ public abstract class AbstractPerk {
         if (this.ovrUnlocalizedNamePrefix != null) {
             return this.ovrUnlocalizedNamePrefix;
         }
-        return "perk." + getRegistryName().getResourceDomain() + "." + getRegistryName().getResourcePath();
+        return "perk." + getRegistryName().getNamespace() + "." + getRegistryName().getPath();
     }
 
     protected void disableTooltipCaching() {
@@ -231,7 +231,7 @@ public abstract class AbstractPerk {
             tooltipCache.add(this.getCategory().getTextFormatting() + I18n.format(this.getUnlocalizedName() + ".name"));
 
             if (key == null) {
-                key = "perk." + getRegistryName().getResourceDomain() + "." + getRegistryName().getResourcePath();
+                key = "perk." + getRegistryName().getNamespace() + "." + getRegistryName().getPath();
             }
             int prevLength = tooltipCache.size();
             boolean shouldAdd = addLocalizedTooltip(tooltipCache);
@@ -265,7 +265,7 @@ public abstract class AbstractPerk {
     @Nullable
     @SideOnly(Side.CLIENT)
     public Collection<String> getSource() {
-        String modid = getRegistryName().getResourceDomain();
+        String modid = getRegistryName().getNamespace();
         ModContainer mod = Loader.instance().getIndexedModList().get(modid);
         if (mod != null) {
             return Lists.newArrayList(mod.getName());

@@ -70,7 +70,7 @@ public class RegistryBlocks {
         fluidLiquidStarlight = FluidRegistry.getFluid(f.getName());
         blockLiquidStarlight = new FluidBlockLiquidStarlight();
         CommonProxy.registryPrimer.register(blockLiquidStarlight
-                .setUnlocalizedName(blockLiquidStarlight.getClass().getSimpleName().toLowerCase())
+                .setTranslationKey(blockLiquidStarlight.getClass().getSimpleName().toLowerCase())
                 .setRegistryName(blockLiquidStarlight.getClass().getSimpleName().toLowerCase()));
         fluidLiquidStarlight.setBlock(blockLiquidStarlight);
 
@@ -219,7 +219,7 @@ public class RegistryBlocks {
     }
 
     private static <T extends Block> T registerBlock(T block, String name) {
-        CommonProxy.registryPrimer.register(block.setUnlocalizedName(name).setRegistryName(name));
+        CommonProxy.registryPrimer.register(block.setTranslationKey(name).setRegistryName(name));
         if(block instanceof BlockDynamicColor) {
             pendingIBlockColorBlocks.add((BlockDynamicColor) block);
         }
@@ -239,8 +239,8 @@ public class RegistryBlocks {
                 AstralSorcery.proxy.registerBlockRender(block, block.getMetaFromState(state), name);
             }
         } else {
-            AstralSorcery.proxy.registerVariantName(Item.getItemFromBlock(block), block.getUnlocalizedName());
-            AstralSorcery.proxy.registerBlockRender(block, 0, block.getUnlocalizedName());
+            AstralSorcery.proxy.registerVariantName(Item.getItemFromBlock(block), block.getTranslationKey());
+            AstralSorcery.proxy.registerBlockRender(block, 0, block.getTranslationKey());
         }
     }
 

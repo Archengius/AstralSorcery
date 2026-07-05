@@ -78,7 +78,7 @@ public class AmuletEnchantment extends DynamicEnchantment {
         if(type.hasEnchantmentTag()) {
             ResourceLocation res = new ResourceLocation(cmp.getString("ench"));
             //Disallow dungeontactics enchantments on the prism; see #1302
-            if (res.getResourceDomain().equals("dungeontactics")) {
+            if (res.getNamespace().equals("dungeontactics")) {
                 return null;
             }
 

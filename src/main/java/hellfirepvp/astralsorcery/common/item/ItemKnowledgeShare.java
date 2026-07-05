@@ -84,8 +84,8 @@ public class ItemKnowledgeShare extends Item implements INBTModel {
     @Override
     public ModelResourceLocation getModelLocation(ItemStack stack, ModelResourceLocation suggestedDefaultLocation) {
         if (isCreative(stack) || getKnowledgeOwnerName(stack) != null) {
-            return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getResourceDomain(),
-                    suggestedDefaultLocation.getResourcePath() + "_written"),
+            return new ModelResourceLocation(new ResourceLocation(suggestedDefaultLocation.getNamespace(),
+                    suggestedDefaultLocation.getPath() + "_written"),
                     suggestedDefaultLocation.getVariant());
         }
         return suggestedDefaultLocation;
@@ -95,7 +95,7 @@ public class ItemKnowledgeShare extends Item implements INBTModel {
     public List<ResourceLocation> getAllPossibleLocations(ModelResourceLocation defaultLocation) {
         List<ResourceLocation> out = new LinkedList<>();
         out.add(defaultLocation);
-        out.add(new ResourceLocation(defaultLocation.getResourceDomain(), defaultLocation.getResourcePath() + "_written"));
+        out.add(new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_written"));
         return out;
     }
 

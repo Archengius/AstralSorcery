@@ -89,7 +89,7 @@ public class LightNetworkBuffer extends CachedWorldData {
                         AstralSorcery.log.warn("Cached source at " + pos + " but didn't find the TileEntity!");
                         AstralSorcery.log.warn("Purging cache entry and removing erroneous block!");
                         IBlockState there = world.getBlockState(pos);
-                        AstralSorcery.log.warn("Block that gets purged: " + there.getBlock().getUnlocalizedName() + " with meta " + there.getBlock().getMetaFromState(there));
+                        AstralSorcery.log.warn("Block that gets purged: " + there.getBlock().getTranslationKey() + " with meta " + there.getBlock().getMetaFromState(there));
                         iterator.remove();
                         if (world.setBlockToAir(pos)) {
                             ChunkNetworkData data = getChunkData(chPos);
